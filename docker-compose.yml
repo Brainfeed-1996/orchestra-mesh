@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  control-plane:
+    build:
+      context: .
+      dockerfile: docker/control-plane.Dockerfile
+    container_name: orchestra-mesh-control-plane
+    ports:
+      - "8090:8090"
+    environment:
+      - PORT=8090
+      - NODE_ENV=production
+      - DATA_DIR=/app/data
+    volumes:
+      - event-store:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8090/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - orchestra-mesh
+
+  web-ui:
+    build:
+      context: .
+      dockerfile: docker/web-ui.Dockerfile
+    container_name: orchestra-mesh-web-ui
+    ports:
+      - "3000:3000"
+    environment:
+      - UI_PORT=3000
+      - API_BASE_URL=http://control-plane:8090
+    depends_on:
+      - control-plane
+    restart: unless-stopped
+    networks:
+      - orchestra-mesh
+
+volumes:
+  event-store:
+    driver: local
+
+networks:
+  orchestra-mesh:
+    driver: bridge

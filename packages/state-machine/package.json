@@ -1,0 +1,17 @@
+{
+  "name": "@orchestra-mesh/state-machine",
+  "version": "1.0.0",
+  "description": "Workflow state projection engine",
+  "author": "Orchestra Mesh Team",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+  },
+  "dependencies": {}
+}

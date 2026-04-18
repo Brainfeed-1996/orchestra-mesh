@@ -1,0 +1,23 @@
+{
+  "name": "@orchestra-mesh/event-store",
+  "version": "1.0.0",
+  "description": "Event store implementation with file and in-memory backends",
+  "author": "Orchestra Mesh Team",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": "./src/index.js",
+    "./interfaces": "./src/interfaces.js"
+  },
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.7"
+  }
+}

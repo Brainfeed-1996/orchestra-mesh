@@ -1,0 +1,26 @@
+[
+  {
+    "workflowId": "wf-001",
+    "type": "workflow.created",
+    "status": "created",
+    "timestamp": "2026-04-13T21:54:00.958Z"
+  },
+  {
+    "workflowId": "wf-001",
+    "type": "approval.requested",
+    "status": "waiting_approval",
+    "timestamp": "2026-04-13T21:54:00.960Z"
+  },
+  {
+    "workflowId": "wf-002",
+    "type": "workflow.created",
+    "status": "created",
+    "timestamp": "2026-04-13T21:54:00.960Z"
+  },
+  {
+    "workflowId": "wf-002",
+    "type": "task.started",
+    "status": "running",
+    "timestamp": "2026-04-13T21:54:00.960Z"
+  }
+]
